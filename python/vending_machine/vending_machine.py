@@ -12,42 +12,21 @@ class Coin(NamedTuple):
     weight: float
 
 
-class Nickel(Coin):
-    size = 5.0
-    weight = 55.0
-
-
-class Dime(Coin):
-    size: float = 10.0
-    weight: float = 1010.0
-
-    # size = 10.0
-    # weight = 1010.0
-
-
-class Quarter(Coin):
-    size = 25.0
-    weight = 2525.0
-
-
 Display = Literal["SOLD OUT", "INSERT COIN"]
 
 
 def valid_coins() -> tuple[Coin, Coin, Coin]:
-    n = Nickel()
-    d = Dime()
-    q = Quarter()
-    return (n, d, q)
+
+    nickel = Coin(size=5.0, weight=55.0)
+    dime = Coin(size=10.0, weight=1010.0)
+    quarter = Coin(size=25.0, weight=2525.0)
+
+    return (nickel, dime, quarter)
 
 
 def is_valid(size: float, weight: float) -> bool:
-    c0 = Coin(size=size, weight=weight)
 
-    breakpoint()
-    if c0 in (valid_coins()):
-        return True
-    else:
-        return False
+    return Coin(size=size, weight=weight) in valid_coins()
 
 
 def update_inventory(
