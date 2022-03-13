@@ -1,3 +1,5 @@
+# import pytest
+
 import vending_machine as vm
 
 def test_update_inventory_sold_out():
@@ -31,14 +33,13 @@ def test_update_inventory_decrement():
     assert display == "INSERT COIN"
 
 
-def test_invalid_coin():
-    s = 2.0
-    w = 1.0
-    assert not vm.is_valid(weight=w, size=s)
+def test_bad_coin():
+    s, w = 5.0, 5.0
+    assert vm.coin_value(size=s, weight=w) == 0.0
 
 
 def test_dime():
     s = 10.0
     w = 1010.0
-    assert vm.is_valid(weight=w, size=s)
+    assert vm.coin_value(weight=w, size=s) == 0.10
 
