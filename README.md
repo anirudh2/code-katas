@@ -4,7 +4,7 @@ A code kata a software development exercise where a developer seeks to regularly
 
 The code variant of a kata derives from the karate kata, an exercise focusing on repetition of a form with incremental improvement every time a form is repeated.
 
-Code katas should have a duration of 30 to 90 minutes.  The focus of a code kata is **not** to solve a problem, as is typically the task of software engineering.   Rahter, the focus is on **practice** of a particular code skill, such as file IO.
+Code katas should have a duration of 30 to 90 minutes.  The focus of a code kata is **not** to solve a problem, as is typically the task of software engineering.   Rather, the focus is on **practice** of a particular code skill, such as file IO.
 
 A hypothetical comparison between code development and code kata (practice) follows:
 
