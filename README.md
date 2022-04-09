@@ -1,10 +1,10 @@
 # code-katas
 
-A code kata a software development exercise where one or more 
-developers seek to regularly **practice** new skills within a fixed amount of time, 
+A code kata a software development exercise where a  
+developer seeks to regularly **practice** new skills within a fixed amount of time, 
 the kata practice session.
 
-The code variant of a kata dervies from the karate kata, an exercise 
+The code variant of a kata derives from the karate kata, an exercise 
 focusing on repetition of a form with incremental improvement every time
 a form is repeated.
 
@@ -25,4 +25,3 @@ A hypothetical comparison between code development and code kata (practice) foll
 
 * [Awesome code katas](https://github.com/gamontal/awesome-katas)
 * [Dave Thomas code kata](http://codekata.com)
-* 
