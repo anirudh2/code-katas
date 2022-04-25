@@ -2,6 +2,7 @@ import os
 
 import anagrams as an
 
+
 def test_should_contain_three_expected_lines():
 
     # create three expected lines
@@ -10,14 +11,14 @@ def test_should_contain_three_expected_lines():
 
     fs = "test.txt"
 
-    # create a file 
+    # create a file
     with open(fs, "w") as fout:
         fout.writelines(given)
 
     # use anagrams to read the file
     found = an.readfile(fs)
 
-    # test has correct number of lines 
+    # test has correct number of lines
     assert len(found) == 3
 
     # test contents are correct
@@ -25,6 +26,7 @@ def test_should_contain_three_expected_lines():
 
     # delete the file from IO operations
     os.remove(fs)
+
 
 def test_rots_and_sort():
     # given = ("o", "r", "s", "t")
