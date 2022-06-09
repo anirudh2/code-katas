@@ -4,7 +4,7 @@
 
 * Graph is composed of nodes and edges.  A node generally has a (x, y, z) -- though this could be just (x), or just (x, y).  The nodes don't have overlapping positions.  Edges connect two nodes.  Edges can be directed, for but this exercise, they are non-directed, so a connection, e.g., between nodes 42 and 23 could be called an edge of (23, 42) and equally well as (42, 23).
 
-* With graphs, there is a concept of an adjacency matrix, A, symmetric matrix for the non-directed special case, for nodes that don't self-connect, the $A_{i,i}$ component is zero.   These are generally sparse, nicer to collect in a list, indices pairs (i, j) for non-zero (e.g., identically 1), as a 1 indicates a connection between nodes.  
+* With graphs, there is a concept of an adjacency matrix, A, symmetric matrix for the non-directed special case, for nodes that don't self-connect, the $A_{ii}$ component is zero.   These are generally sparse, nicer to collect in a list, indices pairs (i, j) for non-zero (e.g., identically 1), as a 1 indicates a connection between nodes.  
 
 * In the finite element analysis (FEA) context, there is a concept of `mesh`, which is similar to a graph.
 
@@ -16,6 +16,7 @@
 
 ## Example
 
+```bash
   4     5      6
   *-----*------*
   |     |      |
@@ -25,12 +26,13 @@
   1     2      3
 
 given:
-mesh connectivity, arbitrary first node
+
+The example mesh connectivity, arbitrary first node
 1, 2, 5, 4  # some counter-clockwise (right-hand rule) perimeter description
 6, 5, 2, 3  
+```
 
-find:
-((1, 2), (1, 4), (2, 3), (2, 5), (3, 6), (4, 5), (5, 6))
+which therefore has the adjacency matrix:
 
 ```bash
 Aij = [[ 0  1  0  1  0  0],
@@ -40,6 +42,13 @@ Aij = [[ 0  1  0  1  0  0],
        [ 0  1  0  1  0  1],
        [ 0  0  1  0  1  0]]
 ```
+
+
+```bash
+find:
+((1, 2), (1, 4), (2, 3), (2, 5), (3, 6), (4, 5), (5, 6))
+```
+
 
 ## Notes
 
@@ -90,7 +99,7 @@ Currently, Julia has decided not to include PkgTemplates, despite everyone using
 Install PkgTemplates to the General Julia global installation.
 
 ```bash
-> julia
+julia> ]
 
 (@v1.7) pkg> add PkgTemplates
   Installing known registries into `~/.julia`
