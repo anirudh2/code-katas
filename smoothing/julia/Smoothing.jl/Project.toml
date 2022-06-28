@@ -1,0 +1,7 @@
+name = "Smoothing"
+uuid = "03ace9b9-7507-4641-9485-e8601a55ef41"
+authors = ["Chad Hovey <hovey@me.com>"]
+version = "0.1.0"
+
+[deps]
+Pluto = "c3e4b0f8-55cb-11ea-2926-15256bba5781"
