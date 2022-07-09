@@ -22,6 +22,15 @@ Erik claimed,
 
 * we didn't want to debug, switch to usd and eur
 
+## Conclusions
+
+* Python `plus` and `equals` scales poorly with new types. Python lacks dispatch (function overloading)
+* Both naive and refactored julia worked, but only refactored was easily extensible
+* Julia's subtyping is more robust than OOP inheritance (python and C++). OOP inheritance assumes we can either extend the original library or expect clients to track `OriginalRGB` versus `MyRBG`; this forces RTTI on clients.
+* Python implementation would combinatorically explode with RTTI as new types were defined.
+* Allowed python implementation to be naive. We didn't try to refactor it.
+* Complexity for new user doing software dev (rather than scripting) is a big downside for Julia. *Is this too harsh?*
+
 ## References
 
 * https://erik-engheim.medium.com/defining-custom-units-in-julia-and-python-513c34a4c971
