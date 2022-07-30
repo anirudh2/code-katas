@@ -15,8 +15,8 @@ julia> ; # semicolon to enter shell mode
 shell> pwd
 /Users/cbh/code-katas
 
-shell> cd bounding_box/julia/
-/Users/cbh/code-katas/bounding_box/julia
+shell> cd boxy/julia/
+/Users/cbh/code-katas/boxy/julia
 
 julia> using PkgTemplates
           # if PkgTemplates is installed, then nothing (no error) is returned
@@ -40,11 +40,11 @@ julia> ?PkgTemplates
 
 ```bash
 shell> pwd
-/Users/cbh/code-katas/bounding_box/julia
+/Users/cbh/code-katas/boxy/julia
 
-julia> Template(interactive=true)("bbox.jl")
+julia> Template(interactive=true)("Boxy.jl")
 # keywords: dir, plugins
-# value for 'dir': "~/code-katas/bounding_box/julia"
+# value for 'dir': "~/code-katas/boxy/julia"
 # deselect: CompatHelper, Git, and TagBot.
 # ProjectFile keywords to customize: "None", and "None" for all the remaining options
 ```
@@ -53,42 +53,40 @@ Review the new file structure:
 
 ```bash
 shell> ls
-bbox
+Boxy
 
-shell> cd bbox/
-/Users/cbh/code-katas/bounding_box/julia/bbox
+shell> cd Boxy/
+/Users/cbh/code-katas/boxy/julia/Boxy
 
 shell> ls
 LICENSE         Manifest.toml   Project.toml    README.md       src             test
-
-shell> 
 ```
 
 Activate the new environment:
 
 ```bash
 (@v1.7) pkg> activate .
-  Activating project at `~/code-katas/bounding_box/julia/bbox`
+  Activating project at `~/code-katas/julia/Boxy`
 
-(bbox) pkg> 
+(Boxy) pkg> 
 ```
 
-The boilerplate `bounding_box/julia/bbox/test/runtests.jl` file appears as:
+The boilerplate `boxy/julia/Boxy/test/runtests.jl` file appears as:
 
 ```bash
-using bbox
+using Boxy
 using Test
 
-@testset "bbox.jl" begin
+@testset "Boxy.jl" begin
     # Write your tests here.
 end
 
 ```
 
-The boilerplate `bounding_box/julia/bbox/src/bbox.jl` file appears as:
+The boilerplate `boxy/julia/Boxy/src/Boxy.jl` file appears as:
 
 ```bash
-module bbox
+module Boxy
 
 # Write your package code here.
 
@@ -98,10 +96,10 @@ end
 Modify the `runtests.jl` test file to appear as follows:
 
 ```bash
-using bbox
+using Boxy
 using Test
 
-@testset "bbox.jl" begin
+@testset "Boxy.jl" begin
     # Write your tests here.
     @test 4 ± 2 == [2, 6]
 end
@@ -111,7 +109,7 @@ Run the test to verify the test passes (actually fails):
 
 ```bash
 (bbox) pkg> test
-bbox.jl: Error During Test at /Users/cbh/code-katas/bounding_box/julia/bbox/test/runtests.jl:6
+bbox.jl: Error During Test at /Users/cbh/code-katas/boxy/julia/Boxy/test/runtests.jl:6
   Test threw exception
   Expression: 4 ± 2 == [2, 6]
   UndefVarError: ± not defined
@@ -119,10 +117,10 @@ bbox.jl: Error During Test at /Users/cbh/code-katas/bounding_box/julia/bbox/test
   ...
 ```
 
-Now create the `plus/minus function` as in the `bbox.jl` source file:
+Now create the `plus/minus function` as in the `Boxy.jl` source file:
 
 ```bash
-module bbox
+module Boxy
 
 export ±
 
@@ -131,19 +129,19 @@ export ±
 # one-line function definition for plus/minus
 ±(a, b) = [a - b, a + b]
 
-end
+end # module Boxy
 ```
 
 Run the test to verify the test (now) passes:
 
 ```bash
-(bbox) pkg> test
-     Testing bbox
+(Boxy) pkg> test
+     Testing Boxy
       Status `/private/var/folders/b8/h5wsr6gn7yxc6crqxbbgdhb80000gn/T/jl_8PeLNT/Project.toml`
-  [dd0d5e91] bbox v0.1.0 `~/code-katas/bounding_box/julia/bbox`
+  [dd0d5e91] Boxy v0.1.0 `~/code-katas/boxy/julia/Boxy`
   [8dfed614] Test `@stdlib/Test`
       Status `/private/var/folders/b8/h5wsr6gn7yxc6crqxbbgdhb80000gn/T/jl_8PeLNT/Manifest.toml`
-  [dd0d5e91] bbox v0.1.0 `~/code-katas/bounding_box/julia/bbox`
+  [dd0d5e91] Boxy v0.1.0 `~/code-katas/boxy/julia/Boxy`
   [2a0f44e3] Base64 `@stdlib/Base64`
   [b77e0a4c] InteractiveUtils `@stdlib/InteractiveUtils`
   [56ddb016] Logging `@stdlib/Logging`
@@ -156,10 +154,10 @@ Precompiling project...
   1 dependency successfully precompiled in 1 seconds
      Testing Running tests...
 Test Summary: | Pass  Total
-bbox.jl       |    1      1
+Boxy.jl       |    1      1
      Testing bbox tests passed 
 
-(bbox) pkg> 
+(Boxy) pkg> 
 ```
 
 Use the functionality interactively in the `REPL` as follows:

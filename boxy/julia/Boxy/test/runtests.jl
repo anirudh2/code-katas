@@ -1,4 +1,4 @@
-using Bbox
+using Boxy
 using FileIO
 using GeometryBasics
 # using Meshes
@@ -17,7 +17,7 @@ function test_face_indices(mesh)
     return true
 end
 
-@testset "Bbox.jl" begin
+@testset "Boxy.jl" begin
     # Write your tests here.
     @test 4 ± 2 == [2, 6]
 
@@ -52,4 +52,4 @@ end
         @test thebox(mesh)
     end
 
-end # @testset "Bbox.jl" begin
+end # @testset "Boxy.jl" begin

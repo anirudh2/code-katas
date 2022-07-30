@@ -30,5 +30,5 @@ GitHub SIBL repo at the `sibl/geo/data/stl/sphere.stl` location.
 
 ## Implementations
 
-* [Julia](julia/bbox/README.md)
+* [Julia](julia/Boxy/README.md)
 * Python: To come.

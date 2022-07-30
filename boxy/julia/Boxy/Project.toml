@@ -1,5 +1,5 @@
-name = "Bbox"
-uuid = "dd0d5e91-03b6-41b4-a3b1-4217fc9942a5"
+name = "Boxy"
+uuid = "bc8dd39e-3277-4a6c-a346-0358aff1eee3"
 authors = ["Chad Hovey <hovey@me.com> and contributors"]
 version = "0.1.0"
 

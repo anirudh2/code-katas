@@ -1,4 +1,4 @@
-module Bbox
+module Boxy
 
 using MeshIO
 
@@ -19,4 +19,4 @@ function thebox(mesh)
     return true
 end # thebox
 
-end # module
+end # module Boxy

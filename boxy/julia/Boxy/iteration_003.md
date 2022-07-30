@@ -1,11 +1,10 @@
-# Expand the `bbox` package.
+# Expand the `Boxy` package.
 
 Add the `Meshes` package:
 
 ```bash
-(bbox) pkg> add Meshes
+(Boxy) pkg> add Meshes
 ```
-
 
 [Index](README.md)
 
