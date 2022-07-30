@@ -2,7 +2,7 @@
 
 We first *create* a package, then implement a simple single-line test, then a simple single-line implementation.  Then we check in the code as incremental development cycle.  Then we start to expand the library through this iterative cycle of `test` -> `code`.
 
-# Create a Package
+## Create a Package
 
 This method follows the [Create A Package](https://github.com/hovey/jlschool/blob/main/create-a-package.md) tutorial on jlschool.
 
@@ -175,3 +175,7 @@ julia> ±(4, 5) # to get ± symbox, type \pm + [tab]
 Check in the code to the GitHub repo as an incremental progress point.
 
 **Iteration 1** is now completed. Congratulations!
+
+[Index](README.md)
+
+[Next](iteration_002.md)
