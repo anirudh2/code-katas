@@ -43,3 +43,13 @@ FileIO = "5789e2e9-d7fb-5bc7-8068-2c6fae9b9549"
 GeometryBasics = "5c1252a2-5f33-56bf-86c9-59e7332b4326"
 MeshIO = "7269a6da-0436-5bbc-96c2-40638cbb6118"
 ```
+
+## Implement a MeshIO Test
+
+Implement the test from https://github.com/hovey/MeshIO.jl/blob/master/test/runtests.jl on
+[line 57](https://github.com/hovey/MeshIO.jl/blob/master/test/runtests.jl#L57), which reads in `cube.stl`. 
+
+In the `bbox/test` folder, we create a `testfiles` subfolder, so we can directly use the `MeshIO` code.
+
+* Copy the `cube.stl` file into the `testfiles` folder.
+* Copy the `sphere.stl` file into the `testfiles` folder too.  This file source was [discussed previously](../../README.md#materials) in the Materials section.
