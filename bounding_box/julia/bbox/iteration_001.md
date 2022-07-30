@@ -64,7 +64,7 @@ LICENSE         Manifest.toml   Project.toml    README.md       src             
 shell> 
 ```
 
-Activte the new environment:
+Activate the new environment:
 
 ```bash
 (@v1.7) pkg> activate .
