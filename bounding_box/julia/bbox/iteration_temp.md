@@ -6,7 +6,7 @@ We first *create* a package, then implement a simple single-line test, then a si
 
 This method follows the [Create A Package](https://github.com/hovey/jlschool/blob/main/create-a-package.md) tutorial on jlschool.
 
-*  Verify that `PkgTemplates` exists:
+Verify that `PkgTemplates` exists:
 
 ```bash
 # vscode cmd + shift + p, Julia: Start REPL
