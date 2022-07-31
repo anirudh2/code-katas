@@ -1,5 +1,5 @@
-# bbox implemented in Julia
+# Julia implementation
 
-* [Iteration 001](iteration_001.md) Create a package, run a test.
-* [Iteration 002](iteration_002.md) Add libraries, run more tests.
-* [Iteration 003](iteration_003.md) Expand the `Bbox` package.
+* [Iteration 001](iteration_001.md) Create and Test a Package
+* [Iteration 002](iteration_002.md) Use `MeshIO` and related libraries.
+* [Iteration 003](iteration_003.md) Expand the `Boxy` package

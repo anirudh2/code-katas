@@ -1,10 +1,10 @@
-# Iteration 001: Create a Package
+# Iteration 001: Create and Test a Package
 
 We first *create* a package, then implement a simple single-line test, then a simple single-line implementation.  Then we check in the code as incremental development cycle.  Then we start to expand the library through this iterative cycle of `test` -> `code`.
 
 ## Create a Package
 
-This method follows the [Create A Package](https://github.com/hovey/jlschool/blob/main/create-a-package.md) tutorial on jlschool.
+This method follows the [Create A Package](https://github.com/hovey/jlschool/blob/main/create-a-package.md) tutorial on the jlschool repo.
 
 Verify that `PkgTemplates` exists:
 
@@ -163,7 +163,8 @@ Boxy.jl       |    1      1
 Use the functionality interactively in the `REPL` as follows:
 
 ```bash
-julia> 
+julia> using Boxy
+
 julia> ±(4, 5) # to get ± symbox, type \pm + [tab]
 2-element Vector{Int64}:
  -1

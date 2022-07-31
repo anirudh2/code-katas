@@ -3,9 +3,9 @@
 ## Objective
 
 The goal of this kata is to `code` and `test` a command line script (in Julia or Python or both)
-that takes as input a well-formed (closed, water-tight, orientable) 3D boundary 
+that takes as input a well-formed (water-tight and orientable) 3D boundary 
 representation as a `.stl` file and returns the bounding box as 
-`[xmin, ymin zmin], [xmax, ymax, zmax]`, two lists of `float` type.
+`[xmin, ymin, zmin], [xmax, ymax, zmax]`, two lists of `float` type.
 
 A future kata may exercise the `deploy` leg of the three-legged DevOps CI/CD workflow 
 of `code` + `test` + `deploy`.
@@ -15,7 +15,7 @@ so the workflow will be `test` -> `code` -> `deploy`.
 
 ## Materials
 
-The `.stl` test file will be a simple sphere, [`sphere.stl`](https://github.com/sandialabs/sibl/blob/c1ed37fecb6f0a856073a530bf92d97c5cc6f60e/geo/data/stl/sphere.stl) taken from the 
+The `.stl` test file is a simple sphere, [`sphere.stl`](https://github.com/sandialabs/sibl/blob/c1ed37fecb6f0a856073a530bf92d97c5cc6f60e/geo/data/stl/sphere.stl), taken from the 
 GitHub SIBL repo at the `sibl/geo/data/stl/sphere.stl` location.
 
 ## Methods

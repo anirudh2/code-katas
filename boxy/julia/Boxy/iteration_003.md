@@ -1,4 +1,4 @@
-# Expand the `Boxy` package.
+# Expand the `Boxy` package
 
 Add the `Meshes` package:
 
