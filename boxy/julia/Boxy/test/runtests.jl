@@ -49,7 +49,7 @@ end
         @test test_face_indices(mesh)
         # @test bbox.boundingbox(mesh)
         # @test thebox(mesh)
-        @test thebox(mesh)
+        @test thebox_version_001(mesh) == ((0.0, 10.0), (0.0, 10.0), (0.0, 10.0))
     end
 
 end # @testset "Boxy.jl" begin
