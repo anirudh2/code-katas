@@ -5,7 +5,7 @@
 The goal of this kata is to `code` and `test` a command line script (in Julia or Python or both)
 that takes as input a well-formed (water-tight and orientable) 3D boundary 
 representation as a `.stl` file and returns the bounding box as 
-`[xmin, ymin, zmin], [xmax, ymax, zmax]`, two lists of `float` type.
+`[xmin, xmax], [ymin, ymax], [zmin, zmax]`, a lists of `float` type.
 
 A future kata may exercise the `deploy` leg of the three-legged DevOps CI/CD workflow 
 of `code` + `test` + `deploy`.
