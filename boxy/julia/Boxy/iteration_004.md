@@ -34,10 +34,7 @@ ERROR: `using` is not a recognized command. Type ? for help with available comma
   [5c1252a2] GeometryBasics v0.4.2
   [7269a6da] MeshIO v0.4.10
 
-julia> using Boxy
-julia> using FileIO
-julia> using MeshIO
-julia> using GeometryBasics
+julia> using Boxy, FileIO, GeometryBasics, MeshIO
 
 julia> mesh = load("test/testfiles/cube.stl")
 Mesh{3, Float32, Triangle}:
