@@ -1,4 +1,4 @@
-# Bouding Box
+# Bounding Box
 
 ## Objective
 
