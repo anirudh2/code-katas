@@ -6,7 +6,6 @@ using MeshIO
 export ±, thebox_version_001
 
 # Write your package code here.
-
 # one-line function definition for plus/minus
 ±(a, b) = [a - b, a + b]
 
@@ -20,7 +19,28 @@ function thebox_version_001(mesh)
     ix, iy, iz = 1, 2, 3 # integer indexes
 
     for (index, value) in enumerate(coordinates(mesh))
-        println("index: $index vertex $value")
+        # println("index: $index vertex $value")
+        xmin = min(xmin, value[ix])
+        xmax = max(xmax, value[ix])
+        ymin = min(ymin, value[iy])
+        ymax = max(ymax, value[iy])
+        zmin = min(zmin, value[iz])
+        zmax = max(zmax, value[iz])
+    end
+    return ((xmin, xmax), (ymin, ymax), (zmin, zmax))
+end
+
+# https://juliageometry.github.io/GeometryBasics.jl/stable/meshes/ 
+# function thebox_version_002(mesh::M) where {M<:GeometryBasics.FaceMesh}
+function thebox_version_002(mesh::M) where {M<:AbstractMesh}
+    # for i in coordinates(mesh)
+    xmin, xmax = 0.0, 0.0 # initial values
+    ymin, ymax = 0.0, 0.0 # initial values
+    zmin, zmax = 0.0, 0.0 # initial values
+    ix, iy, iz = 1, 2, 3 # integer indexes
+
+    for (index, value) in enumerate(coordinates(mesh))
+        # println("index: $index vertex $value")
         xmin = min(xmin, value[ix])
         xmax = max(xmax, value[ix])
         ymin = min(ymin, value[iy])

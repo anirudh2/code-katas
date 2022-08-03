@@ -5,19 +5,26 @@ using GeometryBasics
 using MeshIO
 using Test
 
-const tf = joinpath(dirname(@__FILE__), "testfiles")
-
-function test_face_indices(mesh)
-    for face in faces(mesh)
-        for index in face
-            pass = firstindex(coordinates(mesh)) <= index <= lastindex(coordinates(mesh))
-            pass || return false
-        end
-    end
-    return true
-end
-
 @testset "Boxy.jl" begin
+
+    function test_face_indices(mesh)
+        for face in faces(mesh)
+            for index in face
+                pass = firstindex(coordinates(mesh)) <= index <= lastindex(coordinates(mesh))
+                pass || return false
+            end
+        end
+        return true
+    end
+
+    # tf is a global variable, without const, there is no guarantee that the compiler
+    # won't later change the type from string to int, for example
+    # const will allow the compiler to inline and optimize the code
+    # const tf = joinpath(dirname(@__FILE__), "testfiles")
+    # 
+    # now can remove const because in the testset scope
+    tf = joinpath(dirname(@__FILE__), "testfiles")
+
     # Write your tests here.
     @test 4 ± 2 == [2, 6]
 
