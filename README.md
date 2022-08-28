@@ -18,8 +18,21 @@ A hypothetical comparison between code development and code kata (practice) foll
 
 ### VS Code Key Bindings
 
-- [x] Cmd + Shift + E toggles between File Explorer and Editor
-- [x] Cmd + b closes the Editor window
+- [x] `Cmd + Shift + E` toggle between File Explorer and Editor
+  * `j` down
+  * `k` up
+  * `h`
+    * `if file` select parent folder
+    * `if folder` collapse tree branch
+  * `l` 
+    * `if file` open file and pass focus to editor
+    * `if folder` expand tree branch
+  * `r` rename file/folder
+  * `Enter`
+    * `if file` open file and pass focus to editor
+    * `if folder` open/close folder
+- [x] `Cmd + b` open/close the Explorer window ("Side Bar" window)
+- [x] `Cmd + j` open/close the Terminal window
 
 ### Bob kata
 
