@@ -34,6 +34,39 @@ A hypothetical comparison between code development and code kata (practice) foll
 - [x] `Cmd + b` open/close the Explorer window ("Side Bar" window)
 - [x] `Cmd + j` open/close the Terminal window
 
+### Fish Shell
+
+In `~/.config/fish/config.fish` file:
+
+```bash
+# repeat last command !!
+# and repeat last argument !$
+# Ref: https://superuser.com/questions/719531/what-is-the-equivalent-of-bashs-and-in-the-fish-shell
+function bind_bang
+    switch (commandline -t)[-1]
+        case "!"
+            commandline -t -- $history[1]
+            commandline -f repaint
+        case "*"
+            commandline -i !
+    end
+end
+
+function bind_dollar
+    switch (commandline -t)[-1]
+        case "!"
+            commandline -f backward-delete-char history-token-search-backward
+        case "*"
+            commandline -i '$'
+    end
+end
+
+function fish_user_key_bindings
+    bind ! bind_bang
+    bind '$' bind_dollar
+end
+```
+
 ### Bob kata
 
 * https://exercism.org/tracks/julia/exercises/bob
