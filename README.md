@@ -14,6 +14,17 @@ A hypothetical comparison between code development and code kata (practice) foll
 | frequency | as needed | daily/weekly |
 | objective | problem solution | skill practice | 
 
+## 2022-08-29
+
+### VS Code Key Bindings
+
+- [x] Cmd + Shift + E toggles between File Explorer and Editor
+- [x] Cmd + b closes the Editor window
+
+### Bob kata
+
+* https://exercism.org/tracks/julia/exercises/bob
+
 ## References
 
 * [Awesome code katas](https://github.com/gamontal/awesome-katas)
