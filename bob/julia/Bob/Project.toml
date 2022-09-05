@@ -1,0 +1,7 @@
+name = "Bob"
+uuid = "ce79fd9e-e468-4645-b1ec-6db282f1dce2"
+authors = ["anirudh <anirudh@semiotic.ai>"]
+version = "0.1.0"
+
+[deps]
+Mocking = "78c3b35d-d492-501b-9361-3d52fe80e533"
