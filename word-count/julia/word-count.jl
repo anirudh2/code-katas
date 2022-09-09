@@ -1,14 +1,18 @@
+sentence = " .\n,\t!^&*()~@#\$%{}[]:;'/<>"
+
 function wordcount(sentence::AbstractString)
-# function ff(sentence::AbstractString)
+
   println("input: $sentence")
   aa = strip(lowercase(sentence))
   bb = split(aa, isspace, keepempty=false)
-  println("bb: $bb")
-  removals = ['\"', '\'', '!', ':', '.', ',']
-  # return cc = [lstrip(x, ['\'', '!']) for x in bb]
-  cc = [lstrip(x, removals) for x in bb]
-  dd = [rstrip(x, removals) for x in cc]
-  ddset = Set(dd)
-  counts = [count(x == y for x in dd) for y in ddset]
+  isalpha(x) = issubset(x, 'a':'z')
+  # bb = [filter(isalpha, bb)]
+  removals = ['\"', '\'', '\`', '?', '!', ':', '.', ',']
+  cc = [rstrip(x, removals) for x in bb]
+  dd = [lstrip(x, removals) for x in cc]
+  ddset = Set(filter(isalpha, dd))
+  ee = filter(!isempty, ddset)
+  # counts = [count(x == y for x in dd) for y in ddset]
+  counts = [count(x == y for x in dd) for y in ee]
   results = Dict(zip(ddset, counts))
 end
