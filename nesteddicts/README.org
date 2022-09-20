@@ -1,0 +1,24 @@
+#+title: Nested Dictionaries
+
+* Querying a database will often return a dict. Oftentimes, this dict will be nested. The form of this nested dict can be arbitrary, to reflect the query. Represent this nested dict in a way that allows easy filtering and accessing. For example, a dataframe.
+
++ Example
+
+#+begin_src python
+my_dict = {
+    "vendor": {
+        "id": "foo",
+        "inventory": {
+            "apples": 4
+            "tomatoes": 2
+            "cherries": 1
+        },
+    },
+    "order": {
+        "customer": "bar"
+        "items": {
+            "apples": 1
+        }
+    }
+}
+#+end_src
