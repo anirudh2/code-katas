@@ -9,16 +9,29 @@ my_dict = {
     "vendor": {
         "id": "foo",
         "inventory": {
-            "apples": 4
-            "tomatoes": 2
-            "cherries": 1
+            "apples": 4,
+            "tomatoes": 2,
+            "cherries": 1,
         },
     },
     "order": {
         "customer": "bar"
         "items": {
-            "apples": 1
+            "oranges": 1
         }
     }
+}
+#+end_src
+
+Desired middle state:
+ 
+#+begin_src python
+desired_dict = {
+    "id": "foo",
+    "apples": 4,
+    "tomatoes": 2,
+    "cherries": 1,
+    "customer": "bar",
+    "oranges": 1,
 }
 #+end_src
