@@ -1,7 +1,8 @@
 using Test
 
 # include("nucleotide-count.jl")
-include("ff.jl")
+# include("ff.jl")
+include("hh.jl")
 
 @testset "empty strand" begin
     @test count_nucleotides("") == Dict('A' => 0, 'C' => 0, 'G' => 0, 'T' => 0)
