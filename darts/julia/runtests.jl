@@ -1,6 +1,6 @@
 using Test
 
-include("darts.jl")
+include("aa.jl")
 
 @testset "Missed target" begin
     @test score(-9, 9) == 0
@@ -53,4 +53,3 @@ end
 @testset "Asymmetric position between the inner and middle circles" begin
     @test score(0.5, -4) == 5
 end
-
