@@ -1,6 +1,6 @@
 using Test
 
-include("difference-of-squares.jl")
+include("aa.jl")
 
 @testset "Square the sum of the numbers up to the given number" begin
     @test square_of_sum(1)::Integer == 1

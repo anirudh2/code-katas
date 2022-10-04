@@ -6,6 +6,10 @@ end
 "Sum the squares of the first `n` positive integers"
 function sum_of_squares(n)
     sum([x^2 for x in range(1, step=1, stop=n)])
+    # map(1:n) do x
+    #     println("squaring $x")
+    #     return x^2
+    # end
 end
 
 "Subtract the sum of squares from square of the sum of the first `n` positive ints"
