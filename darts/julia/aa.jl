@@ -18,7 +18,8 @@ end
 const rs = (1, 5, 10)
 const ss = (10, 5, 1)
 @assert length(rs) == length(ss)
-const cs = map((r, s) -> Circle(r, s), rs, ss)
+# const cs = map((r, s) -> Circle(r, s), rs, ss)
+const cs = Circle.(rs, ss)
 
 Base.hypot(p::Point) = hypot(p.x, p.y)
 
