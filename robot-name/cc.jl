@@ -3,7 +3,7 @@
 # - my solution makes use of powered Boolean, but other solutions seemed not to make use of this approach.
 # - seems like a very nice implementation: 
 #   - https://exercism.org/tracks/julia/exercises/robot-name/solutions/sbacelar
-
+#   - https://exercism.org/tracks/julia/exercises/robot-name/solutions/jchartron
 
 
 # Incomplete inner constructor
