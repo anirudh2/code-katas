@@ -1,29 +1,17 @@
-sentence = " .\n,\t!^&*()~@#\$%{}[]:;'/<>"
+function counts(needles, haystack)
+    return map(x -> sum([x == y for y in haystack]), needles)
+end
+
 
 function wordcount(sentence::AbstractString)
-  # isalpha(x) = issubset(x, 'a':'z')
-  # isalpha_num(x) = issubset(x, 'a':'z') || issubset(x, 0:9)
-  isalpha_num(x) = issubset(x, 'a':'z') || issubset(parse(Int, x), 0:9)
-  isspace_ext(x) = isspace(x) || (x == ',')
-
-  removals = ['\"', '\'', '\`', '?', '!', ':', '.', ',', '&', '@', '\\', '$', '%', '^']
-
-  println("\ninput: $sentence")
-  aa = strip(lowercase(sentence))
-  # bb = split(aa, isspace, keepempty=false)
-  # bb1 = split(aa, isspace, keepempty=false)
-  bb = split(aa, isspace_ext, keepempty=false)
-  #
-  # cc = [rstrip(x, removals) for x in bb]
-  # bb2 = split(bb1, ',', keepempty=false)
-  # cc = [rstrip(x, removals) for x in bb2]
-  cc = [rstrip(x, removals) for x in bb]
-  dd = [lstrip(x, removals) for x in cc]
-  #
-  # ddset = Set(filter(isalpha, dd))
-  ddset = Set(filter(isalpha_num, dd))
-  ee = filter(!isempty, ddset)
-  # counts = [count(x == y for x in dd) for y in ddset]
-  counts = [count(x == y for x in dd) for y in ee]
-  results = Dict(zip(ddset, counts))
+    aa = lowercase(strip(sentence))
+    rm = [' ', '.', ',', '\n', '\t', '\"', ';', ':', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '{', '}', '[', ']', '<', '>', '/']
+    # println("removals $rm")
+    hs1 = split(aa, rm, keepempty=false)
+    hs2 = map(x -> strip(x, ['\'']), hs1)
+    hs3 = join(hs2, " ")
+    haystack = split(hs3)
+    needles = [x for x in Set(haystack)]
+    cs = counts(needles, haystack)
+    return Dict(zip(needles, cs))
 end
