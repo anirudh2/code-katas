@@ -1,7 +1,7 @@
 # For discussion with AP
 # - several solutions a priori create all possible name iterations, which seems ineffient at first, but the much more efficient later when naming a Robot.  Thoughts?
 # - my solution makes use of powered Boolean, but other solutions seemed not to make use of this approach.
-# - seems like a very nice implementation: 
+# - seems like a very nice implementation:
 #   - https://exercism.org/tracks/julia/exercises/robot-name/solutions/sbacelar
 #   - https://exercism.org/tracks/julia/exercises/robot-name/solutions/jchartron
 
@@ -33,12 +33,12 @@ end
 #     properties::Dict{Symbol,Any}
 #     # powered::Bool = false
 # end
-# 
+#
 # # Add field to an existing struct
 # # https://discourse.julialang.org/t/add-new-field-to-struct/73923
-# 
+#
 # Robot() = Robot(Dict{Symbol,Any}())
-# 
+#
 # Base.getproperty(x::Robot, property::Symbol) = getfield(x, :properties)[property]
 # Base.setproperty!(x::Robot, property::Symbol, value) = getfield(x, :properties)[property] = value
 # Base.propertynames(x::Robot) = keys(getfield(x, :properties))
@@ -64,7 +64,7 @@ function generate_name()::AbstractString
 end
 
 function reset!(instance::Robot)
-    if instance.powered  # name change requires power 
+    if instance.powered  # name change requires power
         candidate = generate_name()
         while in(candidate, hist)
             # collision, keep looping until unique name found
@@ -99,4 +99,3 @@ end
 #     end
 #     return instance.name
 # end
-
