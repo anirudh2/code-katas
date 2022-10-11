@@ -3,7 +3,8 @@ using Test
 import Random
 
 # include("robot-name.jl")
-include("cc.jl")
+include("aa.jl")
+# include("cc.jl")
 
 # Random names means a risk of collisions.
 const history = Set{String}()
