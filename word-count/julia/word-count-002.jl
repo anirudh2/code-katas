@@ -17,6 +17,3 @@ function wordcount(sentence::AbstractString)
 end
 
 wc(x) = wordcount(x)
-
-function foo(x)
-  
