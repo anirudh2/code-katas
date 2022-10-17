@@ -41,7 +41,7 @@ end
         @test isname(name(r2))
         @test isname(name(r3))
     end
-    
+
     @testset "names of robots are not equal" begin
         @test name(r2) != name(r3)
     end
