@@ -14,64 +14,14 @@ A hypothetical comparison between code development and code kata (practice) foll
 | frequency | as needed | daily/weekly |
 | objective | problem solution | skill practice | 
 
-## 2022-08-29
+## Articles for Discussion
 
-### VS Code Key Bindings
-
-- [x] `Cmd + Shift + E` toggle between File Explorer and Editor
-  * `j` down
-  * `k` up
-  * `h`
-    * `if file` select parent folder
-    * `if folder` collapse tree branch
-  * `l` 
-    * `if file` open file and pass focus to editor
-    * `if folder` expand tree branch
-  * `r` rename file/folder
-  * `Enter`
-    * `if file` open file and pass focus to editor
-    * `if folder` open/close folder
-- [x] `Cmd + b` open/close the Explorer window ("Side Bar" window)
-- [x] `Cmd + j` open/close the Terminal window
-
-### Fish Shell
-
-In `~/.config/fish/config.fish` file:
-
-```bash
-# repeat last command !!
-# and repeat last argument !$
-# Ref: https://superuser.com/questions/719531/what-is-the-equivalent-of-bashs-and-in-the-fish-shell
-function bind_bang
-    switch (commandline -t)[-1]
-        case "!"
-            commandline -t -- $history[1]
-            commandline -f repaint
-        case "*"
-            commandline -i !
-    end
-end
-
-function bind_dollar
-    switch (commandline -t)[-1]
-        case "!"
-            commandline -f backward-delete-char history-token-search-backward
-        case "*"
-            commandline -i '$'
-    end
-end
-
-function fish_user_key_bindings
-    bind ! bind_bang
-    bind '$' bind_dollar
-end
-```
-
-### Bob kata
-
-* https://exercism.org/tracks/julia/exercises/bob
-
+* [What's bad about Julia?](https://viralinstruction.com/posts/badjulia/)
+* [In-depth: Functional programming in C++](https://www.gamedeveloper.com/programming/in-depth-functional-programming-in-c-)
+    * Cool look at how John Carmack approaches using some FP concepts in C++.
+    * Summary: Matches a lot of what we discuss, but with more nuance. He's more explicit about when to mutate.
 ## References
 
 * [Awesome code katas](https://github.com/gamontal/awesome-katas)
 * [Dave Thomas code kata](http://codekata.com)
+* [Codegolf katas](https://codegolf.stackexchange.com/)
