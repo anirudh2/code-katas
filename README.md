@@ -25,3 +25,4 @@ A hypothetical comparison between code development and code kata (practice) foll
 * [Awesome code katas](https://github.com/gamontal/awesome-katas)
 * [Dave Thomas code kata](http://codekata.com)
 * [Codegolf katas](https://codegolf.stackexchange.com/)
+* [Emily Bache's katas](https://github.com/emilybache)
