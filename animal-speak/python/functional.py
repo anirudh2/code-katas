@@ -19,9 +19,11 @@ class Cat:
 
 
 def speak(animal: Union[Dog, Cat]):
-    age_unit = "year"
-    if animal.age == 0 or animal.age > 1:
-        age_unit = "years"
+    # age_unit = "year"
+    # if animal.age == 0 or animal.age > 1:
+    #     age_unit = "years"
+
+    age_unit = "years" if animal.age == 0 or animal.age > 1 else "year"
 
     print(f"{animal.word}. My name is {animal.name} and I am {animal.age} {age_unit} old.")
 
