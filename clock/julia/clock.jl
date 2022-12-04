@@ -12,7 +12,9 @@ function mm(x::Integer)
     if x ≥ 0
         return x % 60
     else
-        return (x + 60) % 60
+        # return (x + 60) % 60
+        # return x % 60 + 60
+        return x % 60 ≥ 0 ? x % 60 : x % 60 + 60
     end
 end
 
@@ -21,7 +23,7 @@ struct Clock
     minutes::Integer
     function Clock(hours, minutes)
 
-        # convert into total minutes from the hours and minutes input
+        # convert input hours + minutes into total minutes
         mins = hours * 60 + minutes
         new(hh(mins), mm(mins))
         # added_hours = Int(floor(minutes / 60)) % 24

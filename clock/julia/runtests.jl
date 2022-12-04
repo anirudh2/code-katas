@@ -4,9 +4,15 @@ include("clock.jl")
 
 @testset "Create a new clock with an initial time" begin
     # on the hour
+    m = 8 * 60 + 0 # = 480 minutes
+    @test hh(m) == 8
+    @test mm(m) == 0
     @test Clock(8, 0) == Clock(8, 0)
 
     # past the hour
+    m = 11 * 60 + 9 # = 669 minutes
+    @test hh(m) == 11
+    @test mm(m) == 9
     @test Clock(11, 9) == Clock(11, 9)
 
     # midnight is zero hours
@@ -37,58 +43,68 @@ include("clock.jl")
     @test Clock(72, 8640) == Clock(0, 0)
 
     # negative hour
+    m = -1 * 60 + 15  # -45 minutes
     @test Clock(-1, 15) == Clock(23, 15)
 
     # # negative hour rolls over
+    m = -25 * 60 + 0  # -1500 minutes
+    @test hh(m) == 23
+    @test mm(m) == 0
     @test Clock(-25, 0) == Clock(23, 0)
 
     # # negative hour rolls over continuously
     @test Clock(-91, 0) == Clock(5, 0)
 
-    # # negative minutes
-    # @test Clock(1, -40) == Clock(0, 20)
+    # negative minutes
+    m = 1 * 60 - 40  # = 20 minutes
+    @test hh(m) == 0
+    @test mm(m) == 20
+    @test Clock(1, -40) == Clock(0, 20)
 
     # # negative minutes roll over
-    # @test Clock(1, -160) == Clock(22, 20)
+    m = 1 * 60 - 160 # -100 minutes
+    @test hh(m) == 22
+    @test mm(m) == 20
+    @test Clock(1, -160) == Clock(22, 20)
 
     # # negative minutes roll over continuously
-    # @test Clock(1, -4820) == Clock(16, 40)
+    @test Clock(1, -4820) == Clock(16, 40)
 
     # # negative sixty minutes is previous hour
-    # @test Clock(2, -60) == Clock(1, 0)
+    @test Clock(2, -60) == Clock(1, 0)
 
     # # negative hour and minutes both roll over
-    # @test Clock(-25, -160) == Clock(20, 20)
+    @test Clock(-25, -160) == Clock(20, 20)
 
     # # negative hour and minutes both roll over continuously
-    # @test Clock(-121, -5810) == Clock(22, 10)
+    @test Clock(-121, -5810) == Clock(22, 10)
 end
 
-# @testset "Add minutes" begin
-#     # add minutes
-#     @test Clock(10, 0) + Dates.Minute(3) == Clock(10, 3)
-# 
-#     # add no minutes
-#     @test Clock(6, 41) + Dates.Minute(0) == Clock(6, 41)
-# 
-#     # add to next hour
-#     @test Clock(0, 45) + Dates.Minute(40) == Clock(1, 25)
-# 
-#     # add more than one hour
-#     @test Clock(10, 0) + Dates.Minute(61) == Clock(11, 1)
-# 
-#     # add more than two hours with carry
-#     @test Clock(0, 45) + Dates.Minute(160) == Clock(3, 25)
-# 
-#     # add across midnight
-#     @test Clock(23, 59) + Dates.Minute(2) == Clock(0, 1)
-# 
-#     # add more than one day (1500 min = 25 hrs)
-#     @test Clock(5, 32) + Dates.Minute(1500) == Clock(6, 32)
-# 
-#     # add more than two days
-#     @test Clock(1, 1) + Dates.Minute(3500) == Clock(11, 21)
-# end
+@testset "Add minutes" begin
+    # add minutes
+    @test Clock(10, 0) + Dates.Minute(3) == Clock(10, 3)
+    # 
+    #     # add no minutes
+    #     @test Clock(6, 41) + Dates.Minute(0) == Clock(6, 41)
+    # 
+    #     # add to next hour
+    #     @test Clock(0, 45) + Dates.Minute(40) == Clock(1, 25)
+    # 
+    #     # add more than one hour
+    #     @test Clock(10, 0) + Dates.Minute(61) == Clock(11, 1)
+    # 
+    #     # add more than two hours with carry
+    #     @test Clock(0, 45) + Dates.Minute(160) == Clock(3, 25)
+    # 
+    #     # add across midnight
+    #     @test Clock(23, 59) + Dates.Minute(2) == Clock(0, 1)
+    # 
+    #     # add more than one day (1500 min = 25 hrs)
+    #     @test Clock(5, 32) + Dates.Minute(1500) == Clock(6, 32)
+    # 
+    #     # add more than two days
+    #     @test Clock(1, 1) + Dates.Minute(3500) == Clock(11, 21)
+end
 # 
 # @testset "Subtract minutes" begin
 #     # subtract minutes
