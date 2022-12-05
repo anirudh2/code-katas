@@ -1,8 +1,8 @@
 # from abc import ABCMeta
-# import abc
+import abc
 
 
-class Animal:
+class Animal(abc.ABC):
 
     # __metaclass__ = abc.ABCMeta
 
@@ -11,7 +11,8 @@ class Animal:
         self.name = name
         self.age = age
 
-        self.word = None
+        # self.word = None
+        self.word = "" # avoid type instability of [None | Str]
 
         self.age_unit = "year"
         if age == 0 or age > 1:
@@ -19,6 +20,7 @@ class Animal:
 
         # self.sentence = f"{self.unique_word}. My name is {self.name} and I am {self.age} {self.age_unit} old."
 
+    # @abc.abstractmethod
     def speak(self):
         # print(self.sentence)
 
