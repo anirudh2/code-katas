@@ -30,7 +30,7 @@ function speak(x::Animal)
 
     age_unit = x.id.age == 0 || x.id.age > 1 ? "years" : "year"
 
-    println("$(x.id.word). My name is $(x.id.name) and I am $(x.id.age) $(age_unit) old.")
+    println("$(x.id.word). My name is $(x.id.name), and I am $(x.id.age) $(age_unit) old.")
 end
 
 animals = (d1, d2, c1, c2)
