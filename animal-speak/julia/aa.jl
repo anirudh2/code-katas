@@ -1,5 +1,8 @@
 using Lazy
 
+const dogspeak = "Ruff"
+const catspeak = "Meow"
+
 abstract type Animal end
 
 struct Identity{I<:Integer}
@@ -26,18 +29,29 @@ end
 
 Lazy.@forward Cat.a name, age
 
+yell(s::AbstractString) = s * "!"
+speak(s::AbstractString) = s * "."
+
 function speak(a::Dog)
-    return speak(a, "Ruff")
+    return speak(a, dogspeak |> speak)
+end
+
+function yell(a::Dog)
+    return speak(a, dogspeak |> yell)
 end
 
 function speak(a::Cat)
-    return speak(a, "Meow")
+    return speak(a, catspeak |> speak)
+end
+
+function yell(a::Cat)
+    return speak(a, catspeak |> yell)
 end
 
 function speak(a::Animal, s::AbstractString)
     a_age = a |> age
     age_unit = a_age == 0 || a_age > 1 ? "years" : "year"
-    return "$s. My name is $(a |> name), and I am $a_age $age_unit old."
+    return "$s My name is $(a |> name), and I am $a_age $age_unit old."
 end
 
 function main()::Cint
@@ -50,6 +64,8 @@ function main()::Cint
     animals = (d1, d2, c1, c2)
 
     animals .|> speak .|> println
+
+    d1 |> yell |> println
 
     return 0
 end
