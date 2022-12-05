@@ -1,3 +1,7 @@
+using Dates
+
+import Base.+
+
 function hh(x::Integer)
     if x ≥ 0
         # return x % 24
@@ -26,27 +30,13 @@ struct Clock
         # convert input hours + minutes into total minutes
         mins = hours * 60 + minutes
         new(hh(mins), mm(mins))
-        # added_hours = Int(floor(minutes / 60)) % 24
-
-        # if added_hours > 0
-        #     new(hh(hours) + added_hours, mm(minutes))
-        # else
-        #     new(hh(hours) % 24, mm(minutes))
-        # end
-
-        # if hours ≥ 0
-        #     if added_hours > 0
-        #         new(hours % 24 + added_hours, minutes % 60)
-        #     else
-        #         new(hours % 24, minutes % 60)
-        #     end
-        # elseif hours < 0
-        #     if added_hours > 0
-        #         new(hours % 24 + 24 + added_hours, minutes % 60)
-        #     else
-        #         new(hours % 24 + 24, minutes % 60)
-        #     end
-        # end
     end
 end
 
+
+function +(cc::Clock, mm::Dates.Minute)
+    h = cc.hours
+    m1 = cc.minutes
+    m2 = Dates.DateTime(mm) |> minute
+    return Clock(h, m1 + m2)
+end
