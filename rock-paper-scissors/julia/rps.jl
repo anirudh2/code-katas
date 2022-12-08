@@ -1,22 +1,28 @@
-const rock_sym = Symbol("rock")
-const paper_sym = Symbol("paper")
-const scissors_sym = Symbol("scissors")
+# const rock_sym = Symbol("rock")
+# const paper_sym = Symbol("paper")
+# const scissors_sym = Symbol("scissors")
+const rock_id = "rock"
+const paper_id = "paper"
+const scissors_id = "scissors"
+
 
 abstract type Hand end
 
 struct Rock <: Hand
     name::String
-    Rock() = new("rock")
+    # Rock() = new("rock")
+    Rock() = new(rock_id)
 end
 
 struct Paper <: Hand
     name::String
-    Paper() = new("paper")
+    # Paper() = new("paper")
+    Paper() = new(paper_id)
 end
 
 struct Scissors <: Hand
     name::String
-    Scissors() = new("scissors")
+    Scissors() = new(scissors_id)
 end
 
 r = Rock()
@@ -34,9 +40,9 @@ function HandFactory(type::String)::Hand
     #     return Scissors()
     # end
     pairs = (
-        ("rock", Rock()),
-        ("paper", Paper()),
-        ("scissors", Scissors())
+        (rock_id, Rock()),
+        (paper_id, Paper()),
+        (scissors_id, Scissors())
     )
     dict = Dict(pairs)
     return dict[type]
