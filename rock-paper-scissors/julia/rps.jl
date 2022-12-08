@@ -22,6 +22,7 @@ end
 
 struct Scissors <: Hand
     name::String
+    # Scissors() = new("scissors")
     Scissors() = new(scissors_id)
 end
 
@@ -48,17 +49,52 @@ function HandFactory(type::String)::Hand
     return dict[type]
 end
 
-
-
 struct Player
-    # hand::String
-    # Player(hand) = new(hand)
-
     hand::Hand
     Player(name::String) = new(HandFactory(name))
 end
 
 hand(a::Player) = a.hand.name
+
+function tie(hand::Hand)
+    return "Both players selected $(hand.name).  It's a tie!"
+end
+
+function winner(human_hand::Rock, computer_hand::Rock)
+    return tie(human_hand)
+end
+
+function winner(human_hand::Paper, computer_hand::Paper)
+    return tie(human_hand)
+end
+
+function winner(human_hand::Scissors, computer_hand::Scissors)
+    return tie(human_hand)
+end
+
+function winner(human_hand::Rock, computer_hand::Scissors)
+    return "Rock smashes scissors! You win!"
+end
+
+function winner(human_hand::Rock, computer_hand::Paper)
+    return "Paper covers rock! You lose."
+end
+
+function winner(human_hand::Paper, computer_hand::Rock)
+    return "Paper covers rock! You win."
+end
+
+function winner(human_hand::Paper, computer_hand::Scissors)
+    return "Scissors cuts paper! You lose."
+end
+
+function winner(human_hand::Scissors, computer_hand::Paper)
+    return "Scissors cuts paper! You win."
+end
+
+function winner(human_hand::Scissors, computer_hand::Rock)
+    return "Rock smashes scissors! You lose."
+end
 
 
 function main()::Cint
@@ -68,8 +104,9 @@ function main()::Cint
         human = Player(readline())
         computer = Player(rand(hands))
 
-        # println("\nYou chose " * hand(human) * ", computer chose " * hand(computer) * ".\n")
-        println("\nYou chose $(human |> hand), computer chose $(computer |> hand).\n")
+        println("\nYou chose $(human |> hand), computer chose $(computer |> hand).")
+
+        winner(human.hand, computer.hand) |> println
 
         print("Play again? (y/n): ")
         play_again = readline()
