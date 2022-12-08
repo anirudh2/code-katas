@@ -23,22 +23,26 @@ r = Rock()
 p = Paper()
 s = Scissors()
 
+hands = [i.name for i in [r, p, s]]
 
 function HandFactory(type::String)::Hand
-    if type == "rock"
-        return Rock()
-    elseif type == "paper"
-        return Paper()
-    elseif type == "scissors"
-        return Scissors()
-    end
+    # if type == "rock"
+    #     return Rock()
+    # elseif type == "paper"
+    #     return Paper()
+    # elseif type == "scissors"
+    #     return Scissors()
+    # end
+    pairs = (
+        ("rock", Rock()),
+        ("paper", Paper()),
+        ("scissors", Scissors())
+    )
+    dict = Dict(pairs)
+    return dict[type]
 end
 
-hand(a::Player) = a.hand.name
 
-# actions = ("rock", "paper", "scissors")
-# actions = [i.name for i in [r, p, s]]
-hands = [i.name for i in [r, p, s]]
 
 struct Player
     # hand::String
@@ -48,47 +52,18 @@ struct Player
     Player(name::String) = new(HandFactory(name))
 end
 
+hand(a::Player) = a.hand.name
 
-# struct Action
-#     name::String
-#     hand::Hand
-#     # name::String
-#     # Action(::Val{rock_sym}) = new(Rock())
-#     # Action(::Val{paper_sym}) = new(Paper())
-#     # Action(::Val{scissors_sym}) = new(Scissors())
-#     Action(name) = new(Rock())
-#         if name == "rock" 
-#     elseif name == "paper"
-#         Action(name) = n
-# end
-
-# name(a::Action) = a.name # accessor
-
-# struct UserAction <: Action
-#     UserA
-# end
-# struct ComputerAction <: Action
-#     name::String
-# end
 
 function main()::Cint
 
     while true
-        print("Enter a choice $hands: ")
-        # user_action = readline()
-        # user_action = Action(readline())
-        # user_action = Action(Symbol(readline()))
-        # user_action = Action(Val(Symbol(readline())))
+        print("\nEnter a choice $hands: ")
         human = Player(readline())
-
-        # computer_action = rand(actions)
-        # computer_action = Action(rand(actions))
-        # computer_action = Action(Val(Symbol(rand(actions))))
         computer = Player(rand(hands))
 
-        # println("\nYou chose $user_action, computer chose $computer_action.\n")
-        # println("\nYou chose $name(user_action), computer chose $name(computer_action).\n")
-        println("\nYou chose " * hand(human) * ", computer chose " * hand(computer) * ".\n")
+        # println("\nYou chose " * hand(human) * ", computer chose " * hand(computer) * ".\n")
+        println("\nYou chose $(human |> hand), computer chose $(computer |> hand).\n")
 
         print("Play again? (y/n): ")
         play_again = readline()
